@@ -1,21 +1,20 @@
 from django.db import models
-from django.contrib.auth.hashers import make_password
-
-class UserType(models.TextChoices):
-    CUSTOMER = 'C', 'Customer'
-    PROVIDER = 'P', 'Provider'
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class User(models.Model):
-    name = models.CharField(max_length=100)
+class User(AbstractUser):
+    USER_TYPE = (
+        ('C', 'Customer'),
+        ('P', 'Provider')
+    )
+
+    username = None
     email = models.EmailField(unique=True)
-    password = models.CharField(max_length=100)
     user_type = models.CharField(
         max_length=1,
-        choices=UserType.choices,
-        default=UserType.CUSTOMER
+        choices=USER_TYPE,
+        default='C'
     )
-    create_at = models.DateTimeField(auto_now_add=True)
 
-    def set_password(self, raw_password):
-        self.password = make_password(raw_password)
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
