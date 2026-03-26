@@ -4,16 +4,20 @@ from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
+
+from django.db.models import Q
 from django.contrib.auth import authenticate
+
 from .models import User
 from .serializers import UserSerializer 
+
 
 # Create your views here.
 class RegisterView(generics.CreateAPIView):
     permission_classes = [AllowAny]
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
 class LoginView(APIView):
     permission_classes = [AllowAny]
 
@@ -39,12 +43,31 @@ class LoginView(APIView):
             'email': user.email,
             'id': user.id
         })
+class LogoutView(APIView):
+    permission_classes = [IsAuthenticated]
 
+    def post(self, request):
+        request.user.auth_token.delete()
+
+        return Response(
+            {'message': 'Logged Out'},
+            status=status.HTTP_200_OK
+        )
 
 
 class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
+    permission_classes = [IsAuthenticated]
     serializer_class = UserSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+
+        if user.is_staff:
+            return User.objects.all()
+        return User.objects.filter(
+            Q(id=user.id) |
+            Q(user_type='P')
+        )
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
