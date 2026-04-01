@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate
 
 from .models import User
 from .serializers import UserSerializer 
+from .permissions import IsSelf, IsSelfOfProvider
 
 
 # Create your views here.
@@ -73,3 +74,8 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     lookup_field = 'pk'
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [IsAuthenticated(), IsSelfOfProvider()]
+        return [IsAuthenticated(), IsSelf()]
