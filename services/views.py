@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from django.db import models
 from rest_framework import generics
-
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.exceptions import PermissionDenied
 
@@ -12,6 +12,7 @@ from .permissions import IsOwnerOrReadOnly
 class ServiceList(generics.ListCreateAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
+    queryset = queryset.filter(is_active=True)
 
     def perform_create(self, serializer):
         self.permission_classes = [IsAuthenticated]
@@ -22,7 +23,15 @@ class ServiceList(generics.ListCreateAPIView):
         serializer.save(provider=user)
 
 class ServiceDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Service.objects.all()
     serializer_class = ServiceSerializer
-    lookup_field = 'pk'
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+    def get_queryset(self):
+        user = self.request.user
+
+        if user.is_authenticated:
+            return Service.objects.filter(
+                models.Q(is_active=True) | models.Q(provider=user)
+            )
+
+        return Service.objects.filter(is_active=True)

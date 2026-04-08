@@ -3,6 +3,7 @@ from .models import Service, ProviderAvailability
 
 class ServiceSerializer(serializers.ModelSerializer):
     provider = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    is_active = serializers.BooleanField(default=True)
 
     class Meta:
         model = Service
