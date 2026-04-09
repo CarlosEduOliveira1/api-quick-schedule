@@ -34,12 +34,12 @@ class ProviderAvailabilitySerializer(serializers.ModelSerializer):
             'id',
             'provider',
             'week_day',
-            'week_day_display'
+            'week_day_display',
             'hour_beginning',
             'hour_ending',
         ]
     def validate(self, data):
-        if data['hour_ending'] >= data['hour_beginning']:
+        if data['hour_ending'] <= data['hour_beginning']:
             raise serializers.ValidationError(
                 'hour_beggining must be before hour_ending'
             )
