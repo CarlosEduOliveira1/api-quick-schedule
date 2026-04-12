@@ -14,11 +14,18 @@ class SchedulingSerializer(serializers.ModelSerializer):
         return value
     
     def validate(self, data):
-        service = data['service']
-        beginning = data['hour_beginning']
+        service = data.get(
+            'service', 
+            self.instance.service if self.instance else None
+        )
+        beginning = data.get(
+            'hour_beginning',
+            self.instance.hour_beginning if self.instance else None
+        )
+        
+        if not service or not beginning:
+            return data
 
-        # from datetime import timedelta
-        # ending = beginning + timedelta(minutes=service.duration)
         ending = beginning + service.duration
 
         week_day = beginning.weekday()
@@ -36,9 +43,12 @@ class SchedulingSerializer(serializers.ModelSerializer):
             status__in=['pending', 'confirmed'],
             hour_beginning__lt=ending,
             hour_ending__gt=beginning,
-        ).exists()
+        )
 
-        if conflicting_schedule:
+        if self.instance:
+            conflicting_schedule = conflicting_schedule.exclude(pk=self.instance.pk)
+
+        if conflicting_schedule.exists():
             raise serializers.ValidationError('The provider already has an appointment.')
         
         return data
