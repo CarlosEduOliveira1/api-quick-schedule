@@ -1,0 +1,810 @@
+{
+  "info": {
+    "_postman_id": "c862bae7-149e-48c4-8dce-3650100a9a52",
+    "name": "api-quick-schedule",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43444190",
+    "_collection_link": "https://go.postman.co/collection/43444190-c862bae7-149e-48c4-8dce-3650100a9a52?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Show User",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Teste\n",
+                  "type": "text",
+                  "uuid": "07eb5335-e536-42d3-b399-613e05f9e7d0",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/user/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Teste\n",
+                  "type": "text",
+                  "uuid": "07eb5335-e536-42d3-b399-613e05f9e7d0",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/user/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "first_name",
+                  "value": "Carlos",
+                  "type": "text",
+                  "uuid": "c86a186e-ec1f-460a-bb11-dca9cfeb91f5"
+                },
+                {
+                  "key": "last_name",
+                  "value": "Oliveira",
+                  "type": "text",
+                  "uuid": "406d4bab-9ab6-43f3-93db-ece6a03a4212"
+                },
+                {
+                  "key": "email",
+                  "value": "teste1@email.com",
+                  "type": "text",
+                  "uuid": "dfc011f8-acc0-4bc6-867a-b74e4c297356"
+                },
+                {
+                  "key": "password",
+                  "value": "Teste!123",
+                  "type": "text",
+                  "uuid": "489ff995-e33e-4c64-a53c-7c82ebfbb329"
+                },
+                {
+                  "key": "user_type",
+                  "value": "C",
+                  "type": "text",
+                  "uuid": "36cec642-6ea8-41d4-9986-a59d033e28cd"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/user/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "first_name",
+                  "value": "Cadu Teste",
+                  "type": "text",
+                  "uuid": "16e3a6ed-8cdb-4e28-9348-aa1c29c5f86d"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/user/4/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "4",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{base_url}}/api/user/3/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "3",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "first_name",
+                  "value": "Carlos",
+                  "type": "text",
+                  "uuid": "c86a186e-ec1f-460a-bb11-dca9cfeb91f5"
+                },
+                {
+                  "key": "last_name",
+                  "value": "Ferreira",
+                  "type": "text",
+                  "uuid": "406d4bab-9ab6-43f3-93db-ece6a03a4212"
+                },
+                {
+                  "key": "email",
+                  "value": "teste@teste.com",
+                  "type": "text",
+                  "uuid": "dfc011f8-acc0-4bc6-867a-b74e4c297356"
+                },
+                {
+                  "key": "password",
+                  "value": "Teste!123",
+                  "type": "text",
+                  "uuid": "489ff995-e33e-4c64-a53c-7c82ebfbb329"
+                },
+                {
+                  "key": "user_type",
+                  "value": "C",
+                  "type": "text",
+                  "uuid": "36cec642-6ea8-41d4-9986-a59d033e28cd"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/register/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "dfc011f8-acc0-4bc6-867a-b74e4c297356"
+                },
+                {
+                  "key": "password",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "489ff995-e33e-4c64-a53c-7c82ebfbb329"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/auth/logout/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Service",
+      "item": [
+        {
+          "name": "List Services",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/service/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "service",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Service",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/service/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "service",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Service",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Veterinário - Check Up",
+                  "type": "text",
+                  "uuid": "d70ebdb3-e231-4ec5-be84-0cb1dad54779"
+                },
+                {
+                  "key": "description",
+                  "value": "Check Up básico de seu pet.",
+                  "type": "text",
+                  "uuid": "e1891f72-9910-4fe2-a283-64e87adbe05f"
+                },
+                {
+                  "key": "price",
+                  "value": "70",
+                  "type": "text",
+                  "uuid": "c41134eb-cfb1-41d9-ba51-7100c01b67ce"
+                },
+                {
+                  "key": "duration",
+                  "value": "30",
+                  "type": "text",
+                  "uuid": "737677d8-fadf-4232-aea4-d3d8428d4912"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/service/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "service",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Service",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "duration",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "2f1aa70e-df16-4e67-93a4-3abd5ca014c3"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/service/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "service",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Service",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/service/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "service",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Provider Avaibility",
+      "item": [
+        {
+          "name": "Show Provider Availability",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/user/2/availability/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "2",
+                "availability",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Provider Availability",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/user/2/availability/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "2",
+                "availability",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Provider Availability",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "week_day",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "47a98a63-f9a1-4203-b5b2-e76028dce78b"
+                },
+                {
+                  "key": "hour_beginning",
+                  "value": "08:00",
+                  "type": "text",
+                  "uuid": "dd619db8-5928-41a2-b33f-5735e8a7ace2"
+                },
+                {
+                  "key": "hour_ending",
+                  "value": "07:00",
+                  "type": "text",
+                  "uuid": "6ab90560-7b29-4438-b58c-f18b5bb30879"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/user/2/availability/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "2",
+                "availability",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Provider Availability",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "hour_ending",
+                  "value": "18:30",
+                  "type": "text",
+                  "uuid": "e39602c8-a23f-4064-a301-20fed9dde43c"
+                },
+                {
+                  "key": "hour_beginning",
+                  "value": "07:30",
+                  "type": "text",
+                  "uuid": "77e6fbbe-db66-411e-92b6-aff3541ccf39"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/user/2/availability/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "2",
+                "availability",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Appointments",
+      "item": [
+        {
+          "name": "Get Appointments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/appointments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Appointment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "service",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "a73e268e-0fde-4e6d-8c21-3ed6f9df41d8"
+                },
+                {
+                  "key": "hour_beginning",
+                  "value": "2026-04-13T17:00:00",
+                  "type": "text",
+                  "uuid": "237a36c8-9cdd-4caa-9aac-1ef76a5c8228"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/appointments/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Appointment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/appointments/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Appointment",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "hour_beginning",
+                  "value": "2026-04-13T17:00:00",
+                  "type": "text",
+                  "uuid": "b191114f-4bfb-494c-a44f-cf5afefba766"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/appointments/3/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "3",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Confirm Appointment",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/appointments/3/confirm/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "3",
+                "confirm",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel Appointment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "hour_beginning",
+                  "value": "2026-04-13T17:00:00",
+                  "type": "text",
+                  "uuid": "b191114f-4bfb-494c-a44f-cf5afefba766"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/appointments/2/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "2",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "Token e983d03067407fa5a319560a4557fd90ea860bad",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}
